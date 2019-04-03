@@ -11,11 +11,7 @@ private:
 		int z;
 		T *p;
 	public:
-		void Init(int yy, int zz) {
-			y = yy;
-			z = zz;
-			p = new T[y*z];
-		}
+		CArray2D(T *pp, int yy, int zz): z(zz), y(yy), p(pp) {}
 		T * operator[](int i) {
 			return p + i * z;
 		}
@@ -24,15 +20,16 @@ private:
 		}
 	};
 	int x;
-	CArray2D *q;
+	int y;
+	int z;
+	T *p;
 
 public:
-	CArray3D(int xx, int yy, int zz): x(xx) {					//It has bug! The memory is not continuous of the first dimension!
-		q = new CArray2D[x];
-		for (int i = 0; i != x; ++i) q[i].Init(yy, zz);
+	CArray3D(int xx, int yy, int zz): x(xx), y(yy), z(zz) {
+		p = new T[x * y *z];
 	}
-	CArray2D & operator[](int i) {
-		return q[i];
+	CArray2D operator[](int i) {
+		return CArray2D(p + i * y * z, y, z);
 	}
 
 };
