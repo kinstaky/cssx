@@ -26,24 +26,6 @@ public:
 	}
 
 	friend ostream& operator<<(ostream &os, const sierpinski &sier) {
-		// if (sier.n > 1) {
-		// 	// for (int i = 0; i != sier.width/2; ++i) {
-		// 	// 	cout << string(sier.width/2, ' ');
-		// 	// 	cout << sier.up->line(i) << endl;
-		// 	// }
-		// 	// for (int i = 0; i != sier.width/2; ++i) {
-		// 	// 	//cout << string(sier.base, ' ');
-		// 	// 	cout << sier.up->line(i);
-		// 	// 	cout << string(sier.lineshift(i), ' ');
-		// 	// 	cout << sier.up->line(i) << endl;
-		// 	// }
-
-		// }
-		// else {
-		// 	//string s(sier.base, ' ');
-		// 	cout << " /\\" << endl;
-		// 	cout << "/__\\" << endl;
-		// }
 		for (int i = 0; i != sier.width; ++i) {
 			cout << sier.line(i) << endl;
 		}
